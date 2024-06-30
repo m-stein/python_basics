@@ -50,3 +50,53 @@ alien_1 = {}
 print(f"Das erste Alien ist {alien_0['color']}")
 alien_1['speed'] = 5
 print(f"Das zweite Alien ist {alien_1.get('color', 'von unbekannter Farbe')}")
+glossary = {
+    'list': 'Stores a dynamic number of values.',
+    'if statement': 'Conditional execution of a code block.',
+    'for loop': 'Calls a block of code for each value in a range.',
+    'dictionary': 'Stores a dynamic number of key-value pairs.',
+    'tupel': 'Stores a fixed set of values.'
+}
+print('Glossary:')
+for key, value in sorted(glossary.items()):
+    print(f"  {key.title()}:\n    {value}")
+
+print('Glossary keys:', end='')
+for key in glossary:
+    print(f' "{key}"', end='')
+
+pizza_toppings = ['cheese', 'mushrooms', 'salami', 'peperoni', 'spinach', "ham"]
+pizza_order = {
+    'crust': 'thick',
+    'toppings': ['mushrooms', 'cheese', 'salami'],
+    'client': {
+        'name': 'Bob Kelzo',
+        'mobile number': '017926734647',
+        'address': 'Pizzastreet 15, Berlin'
+    }
+}
+for key, value in pizza_order.items():
+    print(f"{key}: {value}")
+
+#
+# Console input
+#
+
+age = int(input('How old are you? '))
+if age == 1:
+    unit = 'year'
+else:
+    unit = 'years'
+print(f'You are {age} {unit} old')
+
+pizza_order['toppings'] = []
+while True:
+    user_input = input('Add a topping to your pizza or enter "order": ')
+    if user_input == 'order':
+        break
+    if user_input not in pizza_toppings:
+        print(f'Sorry, we do not have "{user_input}" try another!')
+        continue
+    pizza_order['toppings'].append(user_input)
+
+print(f"Your order:\n{pizza_order}")
