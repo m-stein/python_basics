@@ -1,3 +1,5 @@
+from car import Car as Vehicle, CarWithOdometer
+
 #
 # Lists
 #
@@ -100,3 +102,18 @@ while True:
     pizza_order['toppings'].append(user_input)
 
 print(f"Your order:\n{pizza_order}")
+
+
+class ElectricCar(CarWithOdometer):
+    def __init__(self, vendor, brand, capacity):
+        super().__init__(vendor, brand)
+        self.capacity = capacity
+
+    def print_label(self):
+        print(f"Vendor: {self.vendor}, Brand: {self.brand}, Capacity: {self.capacity}, Odometer reading: {self.odometer_reading}")
+
+
+my_cars = [ElectricCar("VW", "Golf", "2000KW"), Vehicle("Audi", "A4")]
+my_cars[0].raise_odometer(139)
+my_cars[0].print_label()
+my_cars[1].print_label()
