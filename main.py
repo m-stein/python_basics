@@ -1,4 +1,5 @@
 from car import Car as Vehicle, CarWithOdometer
+from console_input import test_console_input
 
 #
 # Lists
@@ -67,41 +68,7 @@ print('Glossary keys:', end='')
 for key in glossary:
     print(f' "{key}"', end='')
 
-pizza_toppings = ['cheese', 'mushrooms', 'salami', 'peperoni', 'spinach', "ham"]
-pizza_order = {
-    'crust': 'thick',
-    'toppings': ['mushrooms', 'cheese', 'salami'],
-    'client': {
-        'name': 'Bob Kelzo',
-        'mobile number': '017926734647',
-        'address': 'Pizzastreet 15, Berlin'
-    }
-}
-for key, value in pizza_order.items():
-    print(f"{key}: {value}")
-
-#
-# Console input
-#
-
-age = int(input('How old are you? '))
-if age == 1:
-    unit = 'year'
-else:
-    unit = 'years'
-print(f'You are {age} {unit} old')
-
-pizza_order['toppings'] = []
-while True:
-    user_input = input('Add a topping to your pizza or enter "order": ')
-    if user_input == 'order':
-        break
-    if user_input not in pizza_toppings:
-        print(f'Sorry, we do not have "{user_input}" try another!')
-        continue
-    pizza_order['toppings'].append(user_input)
-
-print(f"Your order:\n{pizza_order}")
+test_console_input(False)
 
 
 class ElectricCar(CarWithOdometer):
@@ -110,7 +77,8 @@ class ElectricCar(CarWithOdometer):
         self.capacity = capacity
 
     def print_label(self):
-        print(f"Vendor: {self.vendor}, Brand: {self.brand}, Capacity: {self.capacity}, Odometer reading: {self.odometer_reading}")
+        super().print_label()
+        print(f"  Capacity: {self.capacity}, Odometer reading: {self.odometer_reading}")
 
 
 my_cars = [ElectricCar("VW", "Golf", "2000KW"), Vehicle("Audi", "A4")]

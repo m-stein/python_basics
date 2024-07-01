@@ -4,7 +4,7 @@ class Car:
         self.brand = brand
 
     def print_label(self):
-        print(f"VENDOR: {self.vendor}, BRAND: {self.brand}")
+        print(f"Vendor: {self.vendor}, Brand: {self.brand}")
 
 
 class CarWithOdometer(Car):
